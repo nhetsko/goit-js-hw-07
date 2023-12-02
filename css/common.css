@@ -126,6 +126,7 @@ button {
 
 /* task 6 */
 #controls {
+max-width: 468px;
  padding: 32px;
  align-items: flex-start;
  gap: 16px;
@@ -157,6 +158,7 @@ button[data-destroy] {
     background: #FF4E4E;
 }
 #boxes {
+max-width: 468px;
 border-radius: 8px;
 background: #F6F6FE;
 display: flex;
