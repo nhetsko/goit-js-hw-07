@@ -1,6 +1,12 @@
 'use strict'
-const nameInput = document.querySelector("#name-input");
+document.querySelector('body').style.fontFamily = 'Montserrat';
+const nameInput = document.querySelector('#name-input');
 const nameOutput = document.querySelector('#name-output');
-nameInput.addEventListener("input", (event) => {
-  nameOutput.textContent = event.currentTarget.value;
-});
+
+const getInputValue = ({ currentTarget }) =>
+  (nameOutput.innerText =
+    currentTarget.value.trim() !== ''
+      ? currentTarget.value.trim()
+      : 'Anonymous');
+
+nameInput.addEventListener('input', getInputValue);

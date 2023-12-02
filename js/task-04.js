@@ -1,16 +1,19 @@
 'use strict'
-const loginForm = document.querySelector('.login-form');
-loginForm.addEventListener("submit", handleSubmit);
+document.querySelector('body').style.fontFamily = 'Montserrat';
+const formLogin = document.querySelector('.login-form');
 
-function handleSubmit(event) {
-    event.preventDefault()
-    const form = event.target;
-    const email = form.elements.email.value;
-    const password = form.elements.password.value;
-
-    if (email === "" || password === "")  {
-        return alert('All form fields must be filled in');
+formLogin.addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = {};
+  for (const element of formLogin.elements) {
+    if (element.name) {
+      formData[element.name] = element.value;
     }
-    console.log(`Email:${email}, Password:${password}`);
-    form.reset();
-} 
+  }
+  if (formData.email && formData.password) {
+    console.log(formData);
+    formLogin.reset();
+  } else {
+    alert('All form fields must be filled in');
+  }
+});
